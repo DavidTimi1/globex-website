@@ -1,0 +1,366 @@
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
+import { motion, useInView } from 'framer-motion';
+import { Send, Users, TrendingUp, TargetIcon, UsersIcon, KeyRoundIcon, GlobeIcon, MedalIcon, UserIcon } from 'lucide-react';
+import { FaMedal, FaRegHandPeace } from 'react-icons/fa';
+
+interface ValueCard {
+  id: number;
+  icon: React.ReactNode;
+  number: string;
+  title: string;
+  description: string;
+}
+
+interface StatCard {
+  id: number;
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}
+
+const values: ValueCard[] = [
+  {
+    id: 1,
+    number: '01',
+    icon: <KeyRoundIcon className="w-6 h-6 text-zinc-500" />,
+    title: 'Integrity in Every Deal',
+    description: 'We believe that trust is earned through honesty and consistency. Every trade we make is built on transparency, ethics, and respect for our partners.',
+  },
+  {
+    id: 2,
+    number: '02',
+    icon: <TargetIcon className="w-6 h-6 text-zinc-500" />,
+    title: 'Commitment to Quality',
+    description: 'From sourcing to delivery, we maintain the highest standards of product and service excellence — ensuring reliability that our clients can depend on.',
+  },
+  {
+    id: 3,
+    number: '03',
+    icon: <UsersIcon className="w-6 h-6 text-zinc-500" />,
+    title: 'Global Partnerships',
+    description: 'We constantly evolve to meet the changing dynamics of global trade — embracing new opportunities, technologies, and sustainable practices to drive growth.',
+  },
+];
+
+const stats: StatCard[] = [
+  {
+    id: 1,
+    icon: <GlobeIcon className="w-8 h-8 text-zinc-500" />,
+    value: '6+',
+    label: 'Countries',
+  },
+  {
+    id: 2,
+    icon: <MedalIcon className="w-8 h-8 text-zinc-500" />,
+    value: '15+',
+    label: 'Years',
+  },
+  {
+    id: 3,
+    icon: <UsersIcon className="w-8 h-8 text-zinc-500" />,
+    value: '100+',
+    label: 'Partners',
+  },
+];
+
+const AboutSection: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
+  const isImageInView = useInView(imageRef, { once: true, amount: 0.3 });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <>
+      <section ref={sectionRef} className="w-full py-14 md:py-20 px-5 md:px-10 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16">
+            <div
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-50 border border-zinc-200 mb-8 transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <Send className="text-zinc-500 text-sm w-4 h-4" />
+              <span className="text-sm text-zinc-500 font-medium">About Us</span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+              <span className="text-zinc-400">
+                {['Built', 'on', 'Trust.'].map((word, i) => (
+                  <span
+                    key={i}
+                    className={`inline-block transition-all duration-700 mr-3 ${
+                      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                    }`}
+                    style={{ transitionDelay: `${i * 100}ms` }}
+                  >
+                    {word}
+                  </span>
+                ))}
+                <br />
+              </span>
+              {['Driven', 'by', 'Expertise.®'].map((word, i) => (
+                <span
+                  key={i}
+                  className={`inline-block transition-all duration-700 mr-3 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: `${(i + 3) * 100}ms` }}
+                >
+                  {word}
+                </span>
+              ))}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+            <div
+              ref={imageRef}
+              className="relative w-full rounded-lg overflow-hidden"
+            >
+              <motion.div
+                initial={{ scale: 1.2 }}
+                animate={isImageInView ? { scale: 1 } : { scale: 1.2 }}
+                transition={{ duration: 1.5, ease: 'easeOut' }}
+                className="w-full h-full"
+              >
+                <Image
+                  src="https://framerusercontent.com/images/piV0bgVGQYYrDpdFfHq6EdLWxOc.jpg"
+                  alt="Group of men standing with Surfboard"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </motion.div>
+            </div>
+
+            <div className="flex flex-col justify-center space-y-8">
+              <div>
+                <h3 className="text-3xl md:text-4xl font-bold text-zinc-900 mb-4">
+                  {['Why', 'Choose', 'Us?'].map((word, i) => (
+                    <span
+                      key={i}
+                      className={`inline-block transition-all duration-700 mr-3 ${
+                        isVisible ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
+                      }`}
+                      style={{ transitionDelay: `${i * 100 + 800}ms` }}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </h3>
+                <p
+                  className={`text-base text-zinc-600 transition-all duration-700 delay-1000 ${
+                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  }`}
+                >
+                  At Globex, our values define how we do business — fostering long-term partnerships, ensuring quality in every transaction, and upholding our commitment to global trade excellence.
+                </p>
+              </div>
+
+              <div
+                className={`space-y-4 transition-all duration-700 delay-1200 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-zinc-900 rounded-full" />
+                  <p className="text-base font-medium text-zinc-900">Proven Industry Experience</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-zinc-900 rounded-full" />
+                  <p className="text-base font-medium text-zinc-900">End-to-End Supply Solutions</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-zinc-900 rounded-full" />
+                  <p className="text-base font-medium text-zinc-900">Integrity & Partnership First</p>
+                </div>
+              </div>
+
+              <div
+                className={`transition-all duration-700 delay-1400 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+              >
+                <a
+                  href="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-zinc-900 text-white rounded-full font-medium hover:bg-zinc-800 transition-all duration-300 hover:scale-105"
+                >
+                  Get a Quote
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+            {values.map((value, index) => (
+              <ValueCardComponent
+                key={value.id}
+                value={value}
+                delay={index * 150}
+                isVisible={isVisible}
+              />
+            ))}
+          </div>
+
+          <div className="mb-12">
+            <div
+              className={`inline-flex items-center text-zinc-700 gap-2 mb-8 transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
+              <FaRegHandPeace className="w-4 h-4" />
+              <span className="font-medium">Our Journey of Excellence</span>
+            </div>
+
+            <div className="max-w-4xl font-semibold">
+              <p className="text-xl md:text-2xl text-zinc-900 leading-relaxed mb-6">
+                Founded in 2007 in Dubai, UAE, Globex Worldwide DMCC has evolved from a specialized cement importer to a comprehensive commodity trading powerhouse. Our journey represents a commitment to excellence, innovation, and building lasting partnerships with clients across the globe.
+              </p>
+              <p className="text-xl md:text-2xl text-zinc-900 leading-relaxed">
+                Today, we serve as a vital link in the global supply chain, facilitating the movement of essential commodities across continents. Our expertise spans five major categories: petroleum products, cementitious materials, energy supplies, fertilizers, and agro commodities.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {stats.map((stat, index) => (
+              <StatCardComponent
+                key={stat.id}
+                stat={stat}
+                delay={index * 150}
+                isVisible={isVisible}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-14 md:py-20 overflow-hidden">
+        <div className="w-full h-[400px] md:h-[600px] lg:h-[700px] relative">
+          <Image
+            src="https://framerusercontent.com/images/RkdboqIfj2HJ3rVGuyHEWVDMrc4.jpg"
+            alt="Two men greeting with hand"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+        </div>
+      </section>
+    </>
+  );
+};
+
+interface ValueCardProps {
+  value: ValueCard;
+  delay: number;
+  isVisible: boolean;
+}
+
+const ValueCardComponent: React.FC<ValueCardProps> = ({ value, delay, isVisible }) => {
+  return (
+    <div
+      className={`relative rounded-lg border border-zinc-200 bg-zinc-50 p-8 overflow-hidden transition-all duration-700 hover:shadow-lg ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '20px',
+          backgroundPosition: 'left top',
+        }}
+      />
+
+      <div className="relative z-10 space-y-4">
+        <div className="flex items-center justify-between gap-4 mb-4">
+          {value.icon}
+          <span className="text-zinc-500 font-medium">{value.number}</span>
+        </div>
+        <h4 className="text-2xl font-bold text-zinc-900">
+          {value.title.split(' ').map((word, i) => (
+            <span
+              key={i}
+              className="inline-block mr-2"
+              style={{
+                opacity: 1,
+                filter: 'blur(0px)',
+                transform: 'none',
+              }}
+            >
+              {word}
+            </span>
+          ))}
+        </h4>
+        <p className="text-base text-zinc-600 leading-relaxed">{value.description}</p>
+      </div>
+    </div>
+  );
+};
+
+interface StatCardProps {
+  stat: StatCard;
+  delay: number;
+  isVisible: boolean;
+}
+
+const StatCardComponent: React.FC<StatCardProps> = ({ stat, delay, isVisible }) => {
+  return (
+    <div
+      className={`relative rounded-lg border border-zinc-200 bg-zinc-50 p-8 text-center overflow-hidden transition-all duration-700 hover:shadow-lg ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '20px',
+          backgroundPosition: 'left top',
+        }}
+      />
+
+      <div className="relative z-10 space-y-4">
+        <div className="flex justify-center">{stat.icon}</div>
+        <h3 className="text-5xl md:text-6xl font-semibold text-zinc-900">{stat.value}</h3>
+        <p className="text-base text-zinc-600">{stat.label}</p>
+      </div>
+    </div>
+  );
+};
+
+export default AboutSection;
