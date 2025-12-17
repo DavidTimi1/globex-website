@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaHeart, FaQuoteLeft } from 'react-icons/fa';
 import { AnimatedWords } from '@/components/animated-words';
+import Image from 'next/image';
 
 interface Testimonial {
   id: number;
@@ -138,7 +139,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, delay })
         style={{ transitionDelay: `${delay}ms` }}
       >
         {/* Background Image */}
-        <img
+        <Image
+          fill
           src={testimonial.image}
           alt={testimonial.name}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -188,16 +190,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, delay })
       <div className="relative z-10 space-y-6">
         <FaQuoteLeft className="text-2xl text-zinc-900 rotate-180" />
         <p className="text-lg leading-relaxed text-zinc-900">{testimonial.text}</p>
-        
+
         <div className="flex-1 space-y-1">
           <p className="font-medium text-zinc-500">{testimonial.name}</p>
           <p className="text-sm text-zinc-500">{testimonial.company}</p>
         </div>
 
         <div className="w-full max-h-32 rounded-lg overflow-hidden shrink-0">
-          <img
+          <Image
             src={testimonial.image}
             alt={testimonial.name}
+            fill
             className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
           />
         </div>

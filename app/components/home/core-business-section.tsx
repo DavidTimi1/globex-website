@@ -6,7 +6,7 @@ import { coreBusinesses } from "@/data/core-businesses";
 
 export default function CoreBusinessesSection() {
   return (
-    <section id="courses" className="py-24">
+    <section id="courses" className="py-14 md:py-20 bg-white">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <motion.div

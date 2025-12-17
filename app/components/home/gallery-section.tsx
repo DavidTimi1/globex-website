@@ -21,7 +21,7 @@ const col3 = [
 
 export default function GallerySection() {
   return (
-    <section className="py-24">
+    <section className="py-14 md:py-20 bg-white">
       {/* Heading */}
       <div className="mb-16 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900">

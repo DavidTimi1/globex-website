@@ -5,7 +5,7 @@ import { AnimatedWords } from "@/components/animated-words";
 
 export default function Locations() {
     return (
-        <section id="locations" className="py-24">
+        <section id="locations" className="py-14 md:py-20 bg-white">
             <div className="mx-auto max-w-6xl px-5">
                 {/* Heading */}
                 <div className="mb-16 text-center">

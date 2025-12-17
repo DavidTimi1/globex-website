@@ -117,7 +117,7 @@ const CategorySection = ({ category }: { category: ProductCategory }) => {
 
 export function ProductShowcase() {
     return (
-        <div className="bg-gray-50 py-10">
+        <div className="bg-white py-10">
             {PRODUCT_DATA.map((category) => (
                 <CategorySection key={category.id} category={category} />
             ))}
