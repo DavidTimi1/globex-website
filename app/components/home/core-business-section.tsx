@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CoreBusinessCard } from "./core-business-card";
 import { coreBusinesses } from "@/data/core-businesses";
+import { AnimatedWords } from "@/components/animated-words";
 
 export default function CoreBusinessesSection() {
   return (
@@ -17,7 +18,7 @@ export default function CoreBusinessesSection() {
           className="mx-auto max-w-3xl text-center"
         >
           <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            Our Core Businesses
+            <AnimatedWords text="Our Core Businesses" delayOffset={3} />
           </h2>
           <p className="mt-4 text-muted-foreground">
             Comprehensive trading solutions across five major commodity

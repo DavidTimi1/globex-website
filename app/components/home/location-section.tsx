@@ -9,7 +9,7 @@ export default function Locations() {
             <div className="mx-auto max-w-6xl px-5">
                 {/* Heading */}
                 <div className="mb-16 text-center">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
                         <AnimatedWords text="Our Locations" delayOffset={3} />
                     </h2>
                     <p className="mx-auto mt-4 max-w-2xl text-neutral-600">

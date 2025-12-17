@@ -24,7 +24,7 @@ export default function GallerySection() {
     <section className="py-14 md:py-20 bg-white">
       {/* Heading */}
       <div className="mb-16 text-center">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
           <AnimatedWords text="Products Showcase" delayOffset={3} />
         </h2>
         <p className="mt-2 text-zinc-600">

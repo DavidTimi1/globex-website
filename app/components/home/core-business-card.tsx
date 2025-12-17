@@ -36,12 +36,15 @@ export function CoreBusinessCard({
     >
       <div
         className={cn(
-          "grid gap-8 md:grid-cols-2 items-center rounded-xl border bg-background p-8 shadow-lg",
+          "grid gap-8 md:grid-cols-2 items-center rounded-xl border bg-background p-4 md:p-8 md:py-12 shadow-lg",
           reverse && "md:[&>*:first-child]:order-2"
         )}
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
       >
         {/* Image */}
-        <div className="relative h-[320px] w-full overflow-hidden rounded-xl">
+        <div className="relative h-[320px] w-full overflow-hidden rounded-xl md:hidden">
           <Image
             src={image}
             alt={title}
@@ -51,8 +54,10 @@ export function CoreBusinessCard({
           />
         </div>
 
+        <div className="hidden h-[320px] w-full md:block" />
+
         {/* Content */}
-        <div>
+        <div className="bg-white md:p-6 md:shadow-xl rounded-xl">
           <h3 className="text-3xl font-semibold tracking-tight">{title}</h3>
           <p className="mt-4 text-muted-foreground">{description}</p>
 
