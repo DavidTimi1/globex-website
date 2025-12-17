@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CoreBusiness } from "@/data/core-businesses";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 
 export function CoreBusinessCard({
@@ -16,6 +17,7 @@ export function CoreBusinessCard({
   reverse
 }: CoreBusiness) {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -36,11 +38,11 @@ export function CoreBusinessCard({
     >
       <div
         className={cn(
-          "grid gap-8 md:grid-cols-2 items-center rounded-xl border bg-background p-4 md:p-8 md:py-12 shadow-lg",
+          "grid gap-8 md:grid-cols-2 items-center rounded-xl border bg-background bg-center bg-cover p-4 md:p-8 shadow-lg",
           reverse && "md:[&>*:first-child]:order-2"
         )}
         style={{
-          backgroundImage: `url(${image})`,
+          backgroundImage: isMobile? '' : `url(${image})`,
         }}
       >
         {/* Image */}

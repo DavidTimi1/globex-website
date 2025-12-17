@@ -17,7 +17,7 @@ export default function CoreBusinessesSection() {
           transition={{ duration: 0.6 }}
           className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">
+          <h2 className="text-4xl font-bold text-black tracking-tight md:text-5xl">
             <AnimatedWords text="Our Core Businesses" delayOffset={3} />
           </h2>
           <p className="mt-4 text-muted-foreground">

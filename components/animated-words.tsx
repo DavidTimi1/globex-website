@@ -12,7 +12,7 @@ type AnimatedWordsProps = {
 export const AnimatedWords: React.FC<AnimatedWordsProps> = ({
   text,
   delayOffset = 0,
-  className = "text-gray-400",
+  className="",
   threshold = 0.3,
 }) => {
   const words = text.split(" ");
