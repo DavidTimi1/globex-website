@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
               <Image
                 width={252}
                 height={153}
-                src="https://framerusercontent.com/images/AbzZXWoIidWfAiHiTZRt3whmbI.png?width=252&height=153"
+                src="/assets/images/AbzZXWoIidWfAiHiTZRt3whmbI.png?width=252&height=153"
                 alt="Globex International"
                 className="w-full h-auto"
               />

@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
     name: 'Rajesh Menon',
     company: 'UltraBuild Cements (India)',
     text: 'Globex has been instrumental in keeping our cement production running seamlessly. Their logistics and reliability are unmatched.',
-    image: 'https://framerusercontent.com/images/EFdqZTdB3YnaOaMFlhfDRfuU.jpg?scale-down-to=1024',
+    image: '/assets/images/EFdqZTdB3YnaOaMFlhfDRfuU.jpg?scale-down-to=1024',
     type: 'text',
   },
   {
@@ -28,7 +28,7 @@ const testimonials: Testimonial[] = [
     name: 'Aisha',
     company: 'GreenGrow Fertilizers (Oman)',
     text: 'Our collaboration with Globex simplified our fertilizer imports. Their team understands our requirements and delivers ahead of schedule',
-    image: 'https://framerusercontent.com/images/87UnUkLH4HYNIwP3UibsgzA1pJs.jpg?scale-down-to=2048',
+    image: '/assets/images/87UnUkLH4HYNIwP3UibsgzA1pJs.jpg?scale-down-to=2048',
     type: 'image',
   },
   {
@@ -36,7 +36,7 @@ const testimonials: Testimonial[] = [
     name: 'Mohammed Siddiqui',
     company: 'BayCem Industries (Bangladesh)',
     text: 'Working with Globex feels like working with an in-house partner. They truly go beyond being just a supplier.',
-    image: 'https://framerusercontent.com/images/q2mVMwhsqUNlltorVfOs9gTlXKA.jpg?scale-down-to=1024',
+    image: '/assets/images/q2mVMwhsqUNlltorVfOs9gTlXKA.jpg?scale-down-to=1024',
     type: 'text',
   },
 ];
@@ -177,7 +177,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, delay })
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
-          backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+          backgroundImage: `url("/assets/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
           backgroundRepeat: 'repeat',
           backgroundSize: '20px',
           backgroundPosition: 'left top',

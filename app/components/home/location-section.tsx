@@ -22,25 +22,25 @@ export default function Locations() {
                 {/* Cards */}
                 <div className="grid gap-8 lg:grid-cols-2">
                     <LocationCard
-                        image="https://framerusercontent.com/images/gHyY0mRRJNwboJLapOb9iXzjE8.jpg"
+                        image="/assets/images/gHyY0mRRJNwboJLapOb9iXzjE8.jpg"
                         title="Dubai, UAE"
                         subtitle="Goldcrest Executive Tower, JLT"
                     />
 
                     <LocationCard
-                        image="https://framerusercontent.com/images/OUWc6x0IgTmYIMc63Ql8n8qbn4.jpg"
+                        image="/assets/images/OUWc6x0IgTmYIMc63Ql8n8qbn4.jpg"
                         title="India, Multiple Cities"
                         subtitle="Contact for specific locations"
                     />
 
                     <LocationCard
-                        image="https://framerusercontent.com/images/J5Lm8XWEBWC89haui6Z54FLbpiY.jpg"
+                        image="/assets/images/J5Lm8XWEBWC89haui6Z54FLbpiY.jpg"
                         title="Bangladesh, Dhaka"
                         subtitle="Contact for specific locations"
                     />
 
                     <LocationCard
-                        image="https://framerusercontent.com/images/K65oslhAZUfYFzRGauRt47ifwlg.jpg"
+                        image="/assets/images/K65oslhAZUfYFzRGauRt47ifwlg.jpg"
                         title="Oman, Muscat"
                         subtitle="Contact for specific locations"
                     />

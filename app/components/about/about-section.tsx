@@ -105,7 +105,7 @@ const AboutSection: React.FC = () => {
                 className="w-full h-[300px]"
               >
                 <Image
-                  src="https://framerusercontent.com/images/piV0bgVGQYYrDpdFfHq6EdLWxOc.jpg"
+                  src="/assets/images/piV0bgVGQYYrDpdFfHq6EdLWxOc.jpg"
                   alt="Group of men standing with Surfboard"
                   fill
                   className="object-cover"
@@ -213,7 +213,7 @@ const ValueCardComponent: React.FC<ValueCardProps> = ({ value, delay, isVisible 
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
-          backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+          backgroundImage: `url("/assets/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
           backgroundRepeat: 'repeat',
           backgroundSize: '20px',
           backgroundPosition: 'left top',

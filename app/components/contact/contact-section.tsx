@@ -130,7 +130,7 @@ const ContactSection: React.FC = () => {
             <div
               className="absolute inset-0 opacity-10 pointer-events-none"
               style={{
-                backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+                backgroundImage: `url("/assets/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
                 backgroundRepeat: 'repeat',
                 backgroundSize: '20px',
                 backgroundPosition: 'left top',
@@ -204,7 +204,7 @@ const ContactSection: React.FC = () => {
               className="w-full h-full"
             >
               <Image
-                src="https://framerusercontent.com/images/mzzQHkOVTecC4v0J6841vCK8Ws.jpg"
+                src="/assets/images/mzzQHkOVTecC4v0J6841vCK8Ws.jpg"
                 alt="Surfer cleaning Surf board"
                 fill
                 className="object-cover"
@@ -232,7 +232,7 @@ const ContactCardComponent: React.FC<ContactCardProps> = ({ card, delay }) => {
       <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
-          backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+          backgroundImage: `url("/assets/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
           backgroundRepeat: 'repeat',
           backgroundSize: '20px',
           backgroundPosition: 'left top',

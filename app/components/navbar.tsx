@@ -44,7 +44,7 @@ export default function Navbar() {
           <Image
             width={252}
             height={153}
-            src="https://framerusercontent.com/images/AbzZXWoIidWfAiHiTZRt3whmbI.png?width=252&height=153"
+            src="/assets/images/AbzZXWoIidWfAiHiTZRt3whmbI.png?width=252&height=153"
             alt="Brand Logo"
             className="object-cover w-full h-full"
           />

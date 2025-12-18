@@ -31,7 +31,7 @@ export function LocationCard({
           className="h-full w-full rounded-lg"
           style={{
             backgroundImage:
-              'url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg")',
+              'url("/assets/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg")',
             backgroundSize: "20px",
           }}
         />

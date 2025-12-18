@@ -2,21 +2,21 @@ import { VerticalTicker } from "./vertical-ticker";
 import { AnimatedWords } from "@/components/animated-words";
 
 const col1 = [
-  "https://framerusercontent.com/images/Y5JAFyps4emoWfMMb3xat5dm6k.png",
-  "https://framerusercontent.com/images/TRrt33TVozFunlhss2TbTdRR2A.png",
-  "https://framerusercontent.com/images/w6v7aaWzCrHwf3ZDRtWBZNm5dg.png",
+  "/assets/images/Y5JAFyps4emoWfMMb3xat5dm6k.png",
+  "/assets/images/TRrt33TVozFunlhss2TbTdRR2A.png",
+  "/assets/images/w6v7aaWzCrHwf3ZDRtWBZNm5dg.png",
 ];
 
 const col2 = [
-  "https://framerusercontent.com/images/ghpe9sRa8sZWQn1MVFHkPMxjEw.png",
-  "https://framerusercontent.com/images/Gs3Z3iMLjsu7cUXxItfFS8oCuak.png",
-  "https://framerusercontent.com/images/V4tff2o0wESwAn1ZtQ2XtsPipko.png",
+  "/assets/images/ghpe9sRa8sZWQn1MVFHkPMxjEw.png",
+  "/assets/images/Gs3Z3iMLjsu7cUXxItfFS8oCuak.png",
+  "/assets/images/V4tff2o0wESwAn1ZtQ2XtsPipko.png",
 ];
 
 const col3 = [
-  "https://framerusercontent.com/images/P0KnADZFC6jfbUSNPV1g4x40Wk.png",
-  "https://framerusercontent.com/images/d9gQTfRlMTU5ebfGkBxCtiaS4U.png",
-  "https://framerusercontent.com/images/MZsE8fmdopt7yd0TqM7jvwmBMQ.png",
+  "/assets/images/P0KnADZFC6jfbUSNPV1g4x40Wk.png",
+  "/assets/images/d9gQTfRlMTU5ebfGkBxCtiaS4U.png",
+  "/assets/images/MZsE8fmdopt7yd0TqM7jvwmBMQ.png",
 ];
 
 export default function GallerySection() {

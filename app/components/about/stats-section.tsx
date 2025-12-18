@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { GlobeIcon, MedalIcon, UsersIcon } from 'lucide-react';
-import {AnimatedNumber} from '@/components/animated-number';
+import { AnimatedNumber } from '@/components/animated-number';
 
 interface StatCard {
     id: number;
@@ -60,8 +60,8 @@ interface StatCardProps {
 
 const StatCardComponent: React.FC<StatCardProps> = ({ stat, delay }) => {
     // use in view from framer to translate from y-12 to y-0
-    
-    
+
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,7 +74,7 @@ const StatCardComponent: React.FC<StatCardProps> = ({ stat, delay }) => {
             <div
                 className="absolute inset-0 opacity-10 pointer-events-none"
                 style={{
-                    backgroundImage: `url("https://framerusercontent.com/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
+                    backgroundImage: `url("/assets/images/N9GeBa0CRBIhhvb9pYLnIeWF4gQ.svg?width=200&height=120")`,
                     backgroundRepeat: 'repeat',
                     backgroundSize: '20px',
                     backgroundPosition: 'left top',
