@@ -6,13 +6,13 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/f
 
 const AnimatedCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number | undefined>(undefined);
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resizeCanvas = () => {
@@ -21,78 +21,72 @@ const AnimatedCanvas: React.FC = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     const size = 55;
     const gap = 25;
-    const totalSize = size + gap;
-    const cols = Math.ceil(canvas.width / totalSize);
-    const rows = Math.ceil(canvas.height / totalSize);
+    const total = size + gap;
+
+    let cols = Math.ceil(canvas.width / total);
+    let rows = Math.ceil(canvas.height / total);
 
     interface Box {
       x: number;
       y: number;
       opacity: number;
-      fading: boolean;
+      speed: number;
+      direction: 1 | -1;
     }
 
-    const boxes: Box[] = [];
-    for (let i = 0; i < cols; i++) {
-      for (let j = 0; j < rows; j++) {
-        boxes.push({
-          x: i * totalSize,
-          y: j * totalSize,
-          opacity: 0,
-          fading: false,
-        });
+    let boxes: Box[] = [];
+
+    const createBoxes = () => {
+      boxes = [];
+      cols = Math.ceil(canvas.width / total);
+      rows = Math.ceil(canvas.height / total);
+
+      for (let i = 0; i < cols; i++) {
+        for (let j = 0; j < rows; j++) {
+          boxes.push({
+            x: i * total,
+            y: j * total,
+            opacity: Math.random() * 0.15,
+            speed: 0.002 + Math.random() * 0.004,
+            direction: Math.random() > 0.5 ? 1 : -1,
+          });
+        }
       }
-    }
+    };
+
+    createBoxes();
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      boxes.forEach((box) => {
-        // Random chance to start glowing (66% probability converted to per-frame chance)
-        if (!box.fading && box.opacity === 0 && Math.random() < 0.008) {
-          box.fading = true;
+      for (const box of boxes) {
+        box.opacity += box.speed * box.direction;
+
+        if (box.opacity >= 0.18) box.direction = -1;
+        if (box.opacity <= 0) {
+          box.opacity = 0;
+          box.direction = 1;
+          box.speed = 0.002 + Math.random() * 0.004;
         }
 
-        // Fade in
-        if (box.fading && box.opacity < 1) {
-          box.opacity += 0.02;
-          if (box.opacity >= 1) {
-            box.opacity = 1;
-          }
-        }
-
-        // Fade out
-        if (box.fading && box.opacity >= 1) {
-          box.opacity -= 0.015;
-          if (box.opacity <= 0) {
-            box.opacity = 0;
-            box.fading = false;
-          }
-        }
-
-        // Draw box if it has opacity
         if (box.opacity > 0) {
-          ctx.fillStyle = `rgba(50, 50, 50, ${box.opacity * 0.2})`;
+          ctx.fillStyle = `rgba(30, 30, 30, ${box.opacity})`;
           ctx.fillRect(box.x, box.y, size, size);
         }
-      });
+      }
 
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    const interval = setInterval( animate, 1000 );
+    animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      clearInterval(interval);
-
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      window.removeEventListener("resize", resizeCanvas);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, []);
 
@@ -100,14 +94,15 @@ const AnimatedCanvas: React.FC = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ borderRadius: 'inherit' }}
+      style={{ borderRadius: "inherit" }}
     />
   );
 };
 
+
 const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-zinc-900 text-white rounded-t-xl md:rounded-none overflow-hidden">
+    <footer className="relative bg-zinc-900 text-white rounded-t-xl md:rounded-none overflow-hidden" style={{ fontSize: "16px" }}>
       {/* Animated Canvas Background */}
       <div className="absolute inset-0">
         <AnimatedCanvas />
@@ -127,7 +122,7 @@ const Footer: React.FC = () => {
                 className="w-full h-auto"
               />
             </div>
-            <p className=" text-gray-200 leading-relaxed">
+            <p className=" text-zinc-200 leading-relaxed">
               A global commodity trading company specializing in petroleum, construction materials, energy, fertilizers, and agro commodities. Trusted since 2007.
             </p>
             <div className="flex gap-4">
@@ -162,9 +157,13 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-medium mb-6">Get In Touch</h3>
             <div className="space-y-3">
-              <a href="tel:+971-42765747" className=" text-gray-200">+971-42765747</a>
-              <a href="mailto:marketingglobal@globexinternational.in" className=" text-gray-200">marketingglobal@globexinternational.in</a>
-              <p className=" text-gray-200 leading-relaxed">
+              <p>
+                <a href="tel:+971-42765747" className=" text-zinc-200 hover:text-white">+971-42765747</a>
+              </p>
+              <p>
+                <a href="mailto:marketingglobal@globexinternational.in" className="text-zinc-200 hover:text-white">marketingglobal@globexinternational.in</a>
+              </p>
+              <p className=" text-zinc-200 leading-relaxed">
                 611, Goldcrest Executive Tower,<br />
                 Cluster C, JLT, Dubai.
               </p>
@@ -174,28 +173,28 @@ const Footer: React.FC = () => {
           {/* Company */}
           <div>
             <h3 className="text-lg font-medium mb-6">Company</h3>
-            <div className="space-y-3">
+            <div className="space-y-3 text-zinc-200 hover:text-white">
               <a
                 href="/"
-                className="block  text-gray-200 hover:text-white transition-colors duration-200"
+                className="block transition-colors duration-200"
               >
                 Home
               </a>
               <a
                 href="/products"
-                className="block  text-gray-200 hover:text-white transition-colors duration-200"
+                className="block transition-colors duration-200"
               >
                 Products
               </a>
               <a
                 href="/about"
-                className="block  text-gray-200 hover:text-white transition-colors duration-200"
+                className="block transition-colors duration-200"
               >
                 About Us
               </a>
               <a
                 href="/contact"
-                className="block  text-gray-200 hover:text-white transition-colors duration-200"
+                className="block transition-colors duration-200"
               >
                 Contact Us
               </a>
@@ -205,16 +204,16 @@ const Footer: React.FC = () => {
           {/* Legal */}
           <div>
             <h3 className="text-lg font-medium mb-6">Legal</h3>
-            <div className="space-y-3">
+            <div className="space-y-3 text-zinc-200 hover:text-white">
               <a
                 href="#"
-                className="block  text-gray-200 hover:text-white transition-colors duration-200"
+                className="block transition-colors duration-200"
               >
                 Terms of Service
               </a>
               <a
                 href="#"
-                className="block  text-gray-200 hover:text-white transition-colors duration-200"
+                className="block transition-colors duration-200"
               >
                 Privacy Policy
               </a>
@@ -224,8 +223,8 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="pt-8 border-t border-white/10">
-          <div className="flex items-center gap-2  text-gray-200">
-            <span> &copy; {new Date().getFullYear() } Globex. All rights reserved.</span>
+          <div className="flex items-center gap-2  text-zinc-200">
+            <span> &copy; {new Date().getFullYear()} Globex. All rights reserved.</span>
           </div>
         </div>
       </div>

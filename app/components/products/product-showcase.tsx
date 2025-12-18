@@ -63,8 +63,8 @@ const CategorySection = ({ category }: { category: ProductCategory }) => {
             variants={sectionVariants}
         >
             <div className="space-y-2">
-                <h2 className="text-3xl md:text-4xl font-medium text-gray-900">
-                    <AnimatedWords text={category.title} delayOffset={3}  />
+                <h2 className="text-3xl md:text-4xl font-medium text-zinc-900">
+                    <AnimatedWords text={category.title} delayOffset={3} />
                 </h2>
                 <p className="text-sm text-zinc-500 max-w-2xl">
                     {category.subtitle}

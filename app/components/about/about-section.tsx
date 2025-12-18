@@ -77,10 +77,10 @@ const AboutSection: React.FC = () => {
   return (
     <>
       <section ref={sectionRef} className="w-full py-14 md:py-20 px-5 md:px-10 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
+        <div className="container mx-auto space-y-14">
+          <div className="space-y-3">
             <div
-              className={`inline-flex items-center gap-2 px-4 py-2 mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              className={`inline-flex items-center gap-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
             >
               <FlagTriangleRightIcon className="text-zinc-500 text-sm w-4 h-4" />
@@ -193,19 +193,6 @@ const AboutSection: React.FC = () => {
 
         </div>
       </section>
-
-      <section className="w-full py-14 md:py-20 overflow-hidden">
-        <div className="w-full h-[400px] md:h-[600px] lg:h-[700px] relative">
-          <Image
-            src="https://framerusercontent.com/images/RkdboqIfj2HJ3rVGuyHEWVDMrc4.jpg"
-            alt="Two men greeting with hand"
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-        </div>
-      </section>
     </>
   );
 };
@@ -219,7 +206,7 @@ interface ValueCardProps {
 const ValueCardComponent: React.FC<ValueCardProps> = ({ value, delay, isVisible }) => {
   return (
     <div
-      className={`relative rounded-lg border border-zinc-200 bg-zinc-50 p-8 overflow-hidden transition-all duration-700 hover:shadow-lg ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+      className={`relative rounded-lg border border-zinc-200 bg-zinc-50 p-8 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}
       style={{ transitionDelay: `${delay}ms` }}
     >

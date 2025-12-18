@@ -61,7 +61,7 @@ export default function Navbar() {
         <div className="hidden md:block font-semibold">
           <Link
             href="/contact"
-            className="ml-4 px-5 py-2 rounded-full bg-white text-[#111111] relative flex items-center justify-center hover:bg-gray-100 transition-colors"
+            className="ml-4 px-5 py-2 rounded-full bg-white text-[#111111] relative flex items-center justify-center hover:bg-zinc-100 transition-colors"
           >
             Get a Quote
             <span className="absolute -left-2 w-2 h-2 bg-[#090909] rounded-full"></span>
@@ -123,7 +123,7 @@ export default function Navbar() {
               </Link>
               <Link
                 href="/contact"
-                className="w-full px-5 py-3 rounded-full bg-white text-[#111111] text-center font-medium hover:bg-gray-100 transition-colors"
+                className="w-full px-5 py-3 rounded-full bg-white text-[#111111] text-center font-medium hover:bg-zinc-100 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 Get a Quote

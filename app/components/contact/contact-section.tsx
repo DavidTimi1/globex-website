@@ -19,7 +19,7 @@ const contactCards: ContactCard[] = [
   {
     id: 1,
     number: '01',
-    icon: <Phone className="w-6 h-6 text-gray-500" />,
+    icon: <Phone className="w-6 h-6 text-zinc-500" />,
     title: 'Call us on',
     content: '+971-42765747',
     link: 'tel:+97142765747',
@@ -27,7 +27,7 @@ const contactCards: ContactCard[] = [
   {
     id: 2,
     number: '02',
-    icon: <Mail className="w-6 h-6 text-gray-500" />,
+    icon: <Mail className="w-6 h-6 text-zinc-500" />,
     title: 'Email us at',
     content: 'marketingglobal@globexinternational.in',
     link: 'mailto:marketingglobal@globexinternational.in',
@@ -35,7 +35,7 @@ const contactCards: ContactCard[] = [
   {
     id: 3,
     number: '03',
-    icon: <MapPin className="w-6 h-6 text-gray-500" />,
+    icon: <MapPin className="w-6 h-6 text-zinc-500" />,
     title: 'Visit us at',
     content: '611, Goldcrest Executive Tower Cluster C, JLT, Dubai, UAE',
     link: 'https://www.google.com/maps',
@@ -99,13 +99,13 @@ const ContactSection: React.FC = () => {
             className={`inline-flex items-center gap-2 mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}
           >
-            <Mail className="text-gray-500 text-sm w-4 h-4" />
-            <span className="text-sm text-gray-500 font-medium">Contact</span>
+            <Mail className="text-zinc-500 text-sm w-4 h-4" />
+            <span className="text-sm text-zinc-500 font-medium">Contact</span>
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-7xl lg:font-bold font-semibold mb-6">
-            <AnimatedWords text="We'd love to" className='text-gray-400' delayOffset={3} />
-            <AnimatedWords text="hear from you*" className='text-gray-900' delayOffset={3} />
+            <AnimatedWords text="We'd love to" className='text-zinc-400' delayOffset={3} />
+            <AnimatedWords text="hear from you*" className='text-zinc-900' delayOffset={3} />
           </h2>
         </div>
 
@@ -126,7 +126,7 @@ const ContactSection: React.FC = () => {
           className={`grid grid-cols-1 lg:grid-cols-2 gap-12 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
         >
-          <div className="relative rounded-lg border border-gray-200 bg-gray-50 p-8 md:p-12 overflow-hidden">
+          <div className="relative rounded-lg border border-zinc-200 bg-zinc-50 p-8 md:p-12 overflow-hidden">
             <div
               className="absolute inset-0 opacity-10 pointer-events-none"
               style={{
@@ -139,7 +139,7 @@ const ContactSection: React.FC = () => {
 
             <div className="relative z-10 space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-zinc-900 mb-2">
                   Full Name
                 </label>
                 <input
@@ -149,12 +149,12 @@ const ContactSection: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter Your Full Name"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-zinc-300 bg-white text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent transition-all"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-zinc-900 mb-2">
                   Email
                 </label>
                 <input
@@ -165,12 +165,12 @@ const ContactSection: React.FC = () => {
                   onChange={handleChange}
                   placeholder="Enter your email"
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-zinc-300 bg-white text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent transition-all"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-zinc-900 mb-2">
                   Your Message
                 </label>
                 <textarea
@@ -180,13 +180,13 @@ const ContactSection: React.FC = () => {
                   onChange={handleChange}
                   placeholder="Please type your message here"
                   rows={6}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 rounded-lg border border-zinc-300 bg-white text-zinc-900 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent transition-all resize-none"
                 />
               </div>
 
               <button
                 onClick={handleSubmit}
-                className="w-full px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02]"
+                className="w-full px-8 py-4 bg-zinc-900 text-white rounded-full font-medium hover:bg-zinc-800 transition-all duration-300 hover:scale-[1.02]"
               >
                 Send Message
               </button>
@@ -226,7 +226,7 @@ interface ContactCardProps {
 const ContactCardComponent: React.FC<ContactCardProps> = ({ card, delay }) => {
   return (
     <div
-      className="relative rounded-lg border border-gray-200 bg-gray-50 p-6 overflow-hidden transition-all duration-700 hover:shadow-lg"
+      className="relative rounded-lg border border-zinc-200 bg-zinc-50 p-6 overflow-hidden transition-all duration-700 hover:shadow-lg"
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div
@@ -242,10 +242,10 @@ const ContactCardComponent: React.FC<ContactCardProps> = ({ card, delay }) => {
       <div className="relative z-10 space-y-4">
         <div className="flex items-center gap-4">
           {card.icon}
-          <span className="text-sm text-gray-500 font-medium">{card.number}</span>
+          <span className="text-sm text-zinc-500 font-medium">{card.number}</span>
         </div>
 
-        <h4 className="text-2xl font-semibold text-gray-900">
+        <h4 className="text-2xl font-semibold text-zinc-900">
           {card.title.split(' ').map((word, i) => (
             <span
               key={i}
@@ -263,7 +263,7 @@ const ContactCardComponent: React.FC<ContactCardProps> = ({ card, delay }) => {
 
         <a
           href={card.link}
-          className="text-base text-gray-900 hover:text-gray-600 transition-colors inline-block"
+          className="text-base text-zinc-900 hover:text-zinc-600 transition-colors inline-block"
           rel="noopener noreferrer"
           target={card.link.startsWith('http') ? '_blank' : undefined}
         >

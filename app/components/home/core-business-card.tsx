@@ -38,7 +38,7 @@ export function CoreBusinessCard({
     >
       <div
         className={cn(
-          "grid gap-8 lg:grid-cols-2 items-center rounded-xl border bg-background bg-center bg-cover p-4 lg:p-10",
+          "grid gap-8 lg:grid-cols-2 items-center rounded-xl border bg-background bg-center bg-cover p-4 lg:px-10 lg:py-14",
           !reverse && "lg:[&>*:first-child]:order-2"
         )}
         style={{

@@ -82,7 +82,7 @@ const StatCardComponent: React.FC<StatCardProps> = ({ stat, delay }) => {
             />
 
             <div className="relative z-10 space-y-3 text-left md:text-center">
-                <div className='md:justify-center'>{stat.icon}</div>
+                <div>{stat.icon}</div>
                 <h3 className="text-5xl md:text-6xl font-semibold text-zinc-900">
                     <AnimatedNumber value={stat.value} />
                 </h3>

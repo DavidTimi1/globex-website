@@ -156,7 +156,7 @@ html, :root {
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 
-  animation-timeline: scroll();
+  animation-timeline: scroll(root block);
 }
 
 @keyframes custom-scroll-progress {
