@@ -130,6 +130,7 @@
 html, :root {
   scroll-behavior: smooth;
   font-weight: 500;
+  font-size: 20px;
   color: black
 }
 
@@ -144,4 +145,25 @@ html, :root {
 
 .inter-display-font {
   font-feature-settings: "salt" "ss01" "ss02" "ss03" "ss04" "ss08" !important;
+}
+
+.scroll-progress {
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+
+  animation-name: custom-scroll-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  animation-timeline: scroll();
+}
+
+@keyframes custom-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }

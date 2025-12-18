@@ -1,12 +1,13 @@
 "use client";
 
 import { motion, useInView } from 'framer-motion';
-import { KeyRoundIcon, Send, TargetIcon, UsersIcon } from 'lucide-react';
+import { FlagTriangleRightIcon, UsersIcon } from 'lucide-react';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaRegHandPeace } from 'react-icons/fa';
 import StatsSection from './stats-section';
 import { AnimatedWords } from '@/components/animated-words';
+import { HandPeaceIcon, RoundedKeyIcon, TargetIcon2 } from '@/components/icons/icons';
 
 interface ValueCard {
   id: number;
@@ -20,14 +21,14 @@ const values: ValueCard[] = [
   {
     id: 1,
     number: '01',
-    icon: <KeyRoundIcon className="w-6 h-6 text-zinc-500" />,
+    icon: <RoundedKeyIcon className="w-6 h-6 text-zinc-500" />,
     title: 'Integrity in Every Deal',
     description: 'We believe that trust is earned through honesty and consistency. Every trade we make is built on transparency, ethics, and respect for our partners.',
   },
   {
     id: 2,
     number: '02',
-    icon: <TargetIcon className="w-6 h-6 text-zinc-500" />,
+    icon: <TargetIcon2 className="w-6 h-6 text-zinc-500" />,
     title: 'Commitment to Quality',
     description: 'From sourcing to delivery, we maintain the highest standards of product and service excellence — ensuring reliability that our clients can depend on.',
   },
@@ -82,14 +83,13 @@ const AboutSection: React.FC = () => {
               className={`inline-flex items-center gap-2 px-4 py-2 mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
             >
-              <Send className="text-zinc-500 text-sm w-4 h-4" />
+              <FlagTriangleRightIcon className="text-zinc-500 text-sm w-4 h-4" />
               <span className="text-sm text-zinc-500 font-medium">About Us</span>
             </div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <AnimatedWords text="Built on Trust." delayOffset={3} className="text-zinc-400" />
-              <br />
-              <AnimatedWords text="Driven by Expertise.®" delayOffset={3} className="text-zinc-400" />
+            <h2 className="text-4xl md:text-5xl lg:text-7xl lg:font-bold font-semibold mb-6">
+              <AnimatedWords text="Built on Trust." delayOffset={3} className="text-zinc-500" />
+              <AnimatedWords text="Driven by Expertise.®" delayOffset={3} />
             </h2>
           </div>
 
@@ -102,7 +102,7 @@ const AboutSection: React.FC = () => {
                 initial={{ scale: 1.2 }}
                 animate={isImageInView ? { scale: 1 } : { scale: 1.2 }}
                 transition={{ duration: 1.5, ease: 'easeOut' }}
-                className="w-full h-full"
+                className="w-full h-[300px]"
               >
                 <Image
                   src="https://framerusercontent.com/images/piV0bgVGQYYrDpdFfHq6EdLWxOc.jpg"
@@ -116,11 +116,11 @@ const AboutSection: React.FC = () => {
 
             <div className="flex flex-col justify-center space-y-8">
               <div>
-                <h3 className="text-4xl md:text-5xl lg:text-6l font-bold text-zinc-900 mb-4">
+                <h3 className="text-4xl md:text-5xl lg:text-6l font-semibold text-zinc-900 mb-4">
                   <AnimatedWords text="Why Choose Us" delayOffset={3} />
                 </h3>
                 <p
-                  className={`text-base text-zinc-600 transition-all duration-700 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  className={`text-base text-zinc-500 transition-all duration-700 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                 >
                   At Globex, our values define how we do business — fostering long-term partnerships, ensuring quality in every transaction, and upholding our commitment to global trade excellence.
@@ -175,7 +175,7 @@ const AboutSection: React.FC = () => {
               className={`inline-flex items-center text-zinc-700 gap-2 mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                 }`}
             >
-              <FaRegHandPeace className="w-4 h-4" />
+              <HandPeaceIcon className="w-5 h-5" />
               <span className="font-medium">Our Journey of Excellence</span>
             </div>
 
@@ -238,7 +238,7 @@ const ValueCardComponent: React.FC<ValueCardProps> = ({ value, delay, isVisible 
           {value.icon}
           <span className="text-zinc-500 font-medium">{value.number}</span>
         </div>
-        <h4 className="text-2xl font-bold text-zinc-900">
+        <h4 className="text-2xl font-semibold text-zinc-900">
           {value.title.split(' ').map((word, i) => (
             <span
               key={i}
@@ -253,7 +253,7 @@ const ValueCardComponent: React.FC<ValueCardProps> = ({ value, delay, isVisible 
             </span>
           ))}
         </h4>
-        <p className="text-base text-zinc-600 leading-relaxed">{value.description}</p>
+        <p className="text-base text-zinc-500 leading-relaxed">{value.description}</p>
       </div>
     </div>
   );

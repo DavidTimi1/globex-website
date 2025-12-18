@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 const AnimatedCanvas: React.FC = () => {
@@ -23,7 +23,7 @@ const AnimatedCanvas: React.FC = () => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const size = 43;
+    const size = 55;
     const gap = 25;
     const totalSize = size + gap;
     const cols = Math.ceil(canvas.width / totalSize);
@@ -76,7 +76,7 @@ const AnimatedCanvas: React.FC = () => {
 
         // Draw box if it has opacity
         if (box.opacity > 0) {
-          ctx.fillStyle = `rgba(50, 50, 50, ${box.opacity * 0.3})`;
+          ctx.fillStyle = `rgba(50, 50, 50, ${box.opacity * 0.2})`;
           ctx.fillRect(box.x, box.y, size, size);
         }
       });
@@ -84,10 +84,12 @@ const AnimatedCanvas: React.FC = () => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    const interval = setInterval( animate, 1000 );
 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
+      clearInterval(interval);
+
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
@@ -105,15 +107,15 @@ const AnimatedCanvas: React.FC = () => {
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-zinc-900 text-white rounded-t-xl overflow-hidden">
+    <footer className="relative bg-zinc-900 text-white rounded-t-xl md:rounded-none overflow-hidden">
       {/* Animated Canvas Background */}
       <div className="absolute inset-0">
         <AnimatedCanvas />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div className="relative z-10 container mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_1fr] gap-12 mb-12">
           {/* Brand Section */}
           <div className="space-y-6">
             <div className="w-40">
@@ -125,7 +127,7 @@ const Footer: React.FC = () => {
                 className="w-full h-auto"
               />
             </div>
-            <p className=" text-gray-300 leading-relaxed">
+            <p className=" text-gray-200 leading-relaxed">
               A global commodity trading company specializing in petroleum, construction materials, energy, fertilizers, and agro commodities. Trusted since 2007.
             </p>
             <div className="flex gap-4">
@@ -160,9 +162,9 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-medium mb-6">Get In Touch</h3>
             <div className="space-y-3">
-              <p className=" text-gray-300">+971-42765747</p>
-              <p className=" text-gray-300">marketingglobal@globexinternational.in</p>
-              <p className=" text-gray-300 leading-relaxed">
+              <a href="tel:+971-42765747" className=" text-gray-200">+971-42765747</a>
+              <a href="mailto:marketingglobal@globexinternational.in" className=" text-gray-200">marketingglobal@globexinternational.in</a>
+              <p className=" text-gray-200 leading-relaxed">
                 611, Goldcrest Executive Tower,<br />
                 Cluster C, JLT, Dubai.
               </p>
@@ -175,25 +177,25 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <a
                 href="/"
-                className="block  text-gray-300 hover:text-white transition-colors duration-200"
+                className="block  text-gray-200 hover:text-white transition-colors duration-200"
               >
                 Home
               </a>
               <a
                 href="/products"
-                className="block  text-gray-300 hover:text-white transition-colors duration-200"
+                className="block  text-gray-200 hover:text-white transition-colors duration-200"
               >
                 Products
               </a>
               <a
                 href="/about"
-                className="block  text-gray-300 hover:text-white transition-colors duration-200"
+                className="block  text-gray-200 hover:text-white transition-colors duration-200"
               >
                 About Us
               </a>
               <a
                 href="/contact"
-                className="block  text-gray-300 hover:text-white transition-colors duration-200"
+                className="block  text-gray-200 hover:text-white transition-colors duration-200"
               >
                 Contact Us
               </a>
@@ -206,13 +208,13 @@ const Footer: React.FC = () => {
             <div className="space-y-3">
               <a
                 href="#"
-                className="block  text-gray-300 hover:text-white transition-colors duration-200"
+                className="block  text-gray-200 hover:text-white transition-colors duration-200"
               >
                 Terms of Service
               </a>
               <a
                 href="#"
-                className="block  text-gray-300 hover:text-white transition-colors duration-200"
+                className="block  text-gray-200 hover:text-white transition-colors duration-200"
               >
                 Privacy Policy
               </a>
@@ -222,7 +224,7 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="pt-8 border-t border-white/10">
-          <div className="flex items-center gap-2  text-gray-300">
+          <div className="flex items-center gap-2  text-gray-200">
             <span> &copy; {new Date().getFullYear() } Globex. All rights reserved.</span>
           </div>
         </div>

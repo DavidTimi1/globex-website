@@ -13,19 +13,19 @@ interface StatCard {
 const stats: StatCard[] = [
     {
         id: 1,
-        icon: <GlobeIcon className="w-8 h-8 text-zinc-500" />,
+        icon: <GlobeIcon className="w-9 h-9 text-zinc-500" />,
         value: '6+',
         label: 'Countries',
     },
     {
         id: 2,
-        icon: <MedalIcon className="w-8 h-8 text-zinc-500" />,
+        icon: <MedalIcon className="w-9 h-9 text-zinc-500" />,
         value: '15+',
         label: 'Years',
     },
     {
         id: 3,
-        icon: <UsersIcon className="w-8 h-8 text-zinc-500" />,
+        icon: <UsersIcon className="w-9 h-9 text-zinc-500" />,
         value: '100+',
         label: 'Partners',
     },
@@ -68,7 +68,7 @@ const StatCardComponent: React.FC<StatCardProps> = ({ stat, delay }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className={`relative rounded-lg border border-zinc-200 bg-zinc-50 p-8 text-center overflow-hidden transition-all duration-700 hover:shadow-lg `}
+            className={`relative rounded-lg border border-zinc-200 bg-zinc-50 p-6 text-center overflow-hidden transition-all duration-700 hover:shadow-lg `}
             style={{ transitionDelay: `${delay}ms` }}
         >
             <div
@@ -81,12 +81,12 @@ const StatCardComponent: React.FC<StatCardProps> = ({ stat, delay }) => {
                 }}
             />
 
-            <div className="relative z-10 space-y-4">
-                <div className="flex justify-center">{stat.icon}</div>
+            <div className="relative z-10 space-y-3 text-left md:text-center">
+                <div className='md:justify-center'>{stat.icon}</div>
                 <h3 className="text-5xl md:text-6xl font-semibold text-zinc-900">
                     <AnimatedNumber value={stat.value} />
                 </h3>
-                <p className="text-base text-zinc-600">{stat.label}</p>
+                <p className="text-sm text-zinc-500">{stat.label}</p>
             </div>
         </motion.div>
     );

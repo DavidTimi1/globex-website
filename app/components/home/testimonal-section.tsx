@@ -80,33 +80,31 @@ const TestimonialsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Heading and subcopy */}
         <div className="mb-16 text-center space-y-6">
-          {/* Eyebrow with icon */}
-          <div
-            className={`inline-flex items-center gap-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-          >
-            <FaHeart className="text-zinc-500 text-sm" />
-            <span className="text-sm text-zinc-500 font-medium">Testimonials</span>
+          <div className="space-y-3">
+            <div
+              className={`inline-flex items-center gap-2 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+            >
+              <FaHeart className="text-zinc-500 text-sm" />
+              <span className="text-sm text-zinc-500 font-medium">Testimonials</span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-7xl lg:font-bold font-semibold text-zinc-900">
+              <AnimatedWords text="What Our Partners Say" delayOffset={3} />
+            </h2>
+
+            <p
+              className={`text-base md:text-lg text-zinc-500 max-w-3xl mx-auto transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+            >
+              Across continents and industries, our partners trust Globex to deliver
+              excellence, consistency, and value — every single time.
+            </p>
           </div>
-
-          {/* Title with word animation */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900">
-            <AnimatedWords text="What Our Partners Say" delayOffset={3} />
-          </h2>
-
-          {/* Subtitle */}
-          <p
-            className={`text-base md:text-lg text-zinc-600 max-w-3xl mx-auto transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-          >
-            Across continents and industries, our partners trust Globex to deliver
-            excellence, consistency, and value — every single time.
-          </p>
         </div>
 
-        {/* Testimonials Grid */}
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          className={`grid grid-cols-1 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
         >
           {testimonials.map((testimonial, index) => (
@@ -196,7 +194,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, delay })
           <p className="text-sm text-zinc-500">{testimonial.company}</p>
         </div>
 
-        <div className="w-full max-h-32 rounded-lg overflow-hidden shrink-0">
+        <div className="w-full h-40 rounded-lg overflow-hidden shrink-0 relative">
           <Image
             src={testimonial.image}
             alt={testimonial.name}

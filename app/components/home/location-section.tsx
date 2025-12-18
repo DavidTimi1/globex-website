@@ -8,11 +8,11 @@ export default function Locations() {
         <section id="locations" className="py-14 md:py-20 bg-white">
             <div className="mx-auto max-w-6xl px-5">
                 {/* Heading */}
-                <div className="mb-16 text-center">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+                <div className="mb-16 text-center space-y-3">
+                    <h2 className="text-4xl md:text-5xl lg:text-7xl lg:font-bold font-semibold">
                         <AnimatedWords text="Our Locations" delayOffset={3} />
                     </h2>
-                    <p className="mx-auto mt-4 max-w-2xl text-neutral-600">
+                    <p className="mx-auto max-w-2xl text-zinc-500">
                         Our location in one of the world&apos;s most connected business hubs
                         allows us to bridge continents — ensuring faster, smarter, and more
                         reliable global supply solutions.
@@ -20,7 +20,7 @@ export default function Locations() {
                 </div>
 
                 {/* Cards */}
-                <div className="grid gap-8 md:grid-cols-2">
+                <div className="grid gap-8 lg:grid-cols-2">
                     <LocationCard
                         image="https://framerusercontent.com/images/gHyY0mRRJNwboJLapOb9iXzjE8.jpg"
                         title="Dubai, UAE"

@@ -103,10 +103,9 @@ const ContactSection: React.FC = () => {
             <span className="text-sm text-gray-500 font-medium">Contact</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl lg:font-bold font-semibold mb-6">
             <AnimatedWords text="We'd love to" className='text-gray-400' delayOffset={3} />
-              <br />
-            <AnimatedWords text="hear from you" className='text-gray-900' delayOffset={3} />
+            <AnimatedWords text="hear from you*" className='text-gray-900' delayOffset={3} />
           </h2>
         </div>
 
@@ -246,7 +245,7 @@ const ContactCardComponent: React.FC<ContactCardProps> = ({ card, delay }) => {
           <span className="text-sm text-gray-500 font-medium">{card.number}</span>
         </div>
 
-        <h4 className="text-2xl font-bold text-gray-900">
+        <h4 className="text-2xl font-semibold text-gray-900">
           {card.title.split(' ').map((word, i) => (
             <span
               key={i}

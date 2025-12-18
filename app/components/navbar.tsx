@@ -34,6 +34,10 @@ export default function Navbar() {
 
   return (
     <nav className="backdrop-blur-md bg-[#0f0f0f] border-b border-[rgba(9,9,9,0.1)] w-full sticky top-0 left-0 z-50">
+      {/* progress bar */}
+      <div className="w-full h-1 bg-white overflow-hidden">
+        <div className="scroll-progress h-full bg-[#ff4f01]" />
+      </div>
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Brand Logo */}
         <Link href="/" className="h-12 w-32 relative z-50">
