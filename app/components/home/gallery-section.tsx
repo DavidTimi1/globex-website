@@ -33,7 +33,7 @@ export default function GallerySection() {
       </div>
 
       {/* Gallery */}
-      <div className="mx-auto grid max-w-6xl grid-rows-3 lg:grid-cols-3 gap-4">
+      <div className="mx-auto grid container grid-rows-3 md:grid-cols-3 gap-4">
         <VerticalTicker images={col1} duration={14} />
         <VerticalTicker images={col2} duration={14} reverse />
         <VerticalTicker images={col3} duration={14} />

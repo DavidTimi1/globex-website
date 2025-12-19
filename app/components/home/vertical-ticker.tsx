@@ -19,7 +19,7 @@ export function VerticalTicker({
   const isMobile = useIsMobile();
 
   return (
-    <div className="relative row-span-1 lg:row-span-auto w-full lg:h-[520px] overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] lg:mask-[linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
+    <div className="relative row-span-1 md:row-span-auto w-full md:h-[520px] overflow-hidden mask-[linear-gradient(to_right,transparent,black_15%,black_85%,transparent)] lg:mask-[linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
       <motion.div
         className="flex lg:flex-col gap-4"
         animate={{
@@ -35,7 +35,7 @@ export function VerticalTicker({
         {[...images, ...images].map((src, i) => (
           <div
             key={i}
-            className="relative shrink-0 w-full max-w-[366px] lg:max-w-full h-[320px] lg:h-[260px] overflow-hidden rounded-lg"
+            className="relative shrink-0 w-full max-w-[366px] md:max-w-full h-[320px] lg:h-[260px] overflow-hidden rounded-lg"
           >
             <Image
               src={src}

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { CoreBusiness } from "@/data/core-businesses";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsLargeScreen} from "@/hooks/use-mobile";
 
 
 export function CoreBusinessCard({
@@ -17,7 +17,7 @@ export function CoreBusinessCard({
   reverse
 }: CoreBusiness) {
   const ref = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
+  const isSmallScreen = !useIsLargeScreen();
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -33,16 +33,16 @@ export function CoreBusinessCard({
       ref={ref}
       style={{ scale, opacity }}
       className={cn(
-        "sticky top-0 z-1 grid min-h-screen items-center",
+        "sticky top-0 z-1 grid items-center",
       )}
     >
       <div
         className={cn(
-          "grid gap-8 lg:grid-cols-2 items-center rounded-xl border bg-background bg-center bg-cover p-4 lg:px-10 lg:py-14",
-          !reverse && "lg:[&>*:first-child]:order-2"
+          "grid gap-8 lg:grid-cols-2 items-center rounded-xl border bg-background bg-center bg-cover p-4 lg:px-10 lg:py-14 container",
+          !reverse && "lg:[&>*:nth-child(3)]:order-1 lg:[&>*:nth-child(2)]:order-2"
         )}
         style={{
-          backgroundImage: isMobile? '' : `url(${image})`,
+          backgroundImage: isSmallScreen? '' : `url(${image})`,
         }}
       >
         {/* Image */}

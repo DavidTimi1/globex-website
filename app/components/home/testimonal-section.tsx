@@ -151,7 +151,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, delay })
         />
 
         {/* Content */}
-        <div className="relative h-full p-8 flex flex-col justify-between text-white">
+        <div className="relative p-8 flex flex-col justify-between text-white">
           <div className="space-y-4">
             <FaQuoteLeft className="text-2xl text-white/90 rotate-180" />
             <p className="text-lg leading-relaxed">{testimonial.text}</p>

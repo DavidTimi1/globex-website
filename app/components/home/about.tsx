@@ -7,8 +7,8 @@ import { AnimatedWords } from "@/components/animated-words";
 
 export default function About() {
   return (
-    <section className="py-14 md:py-20 bg-white">
-      <div className="container mx-auto px-6 space-y-10">
+    <section className="py-14 md:py-20 bg-white w-full items-center">
+      <div className="container mx-auto px-6 relative lg:px-0 space-y-10 overflow-x-hidden">
         <h2 className="text-left text-4xl md:text-5xl lg:text-7xl font-semibold">
           <AnimatedWords text="Welcome to" delayOffset={3} className="text-zinc-500" />
           <AnimatedWords text="Globex Worldwide ®" delayOffset={6} className="text-zinc-900" />

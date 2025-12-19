@@ -28,10 +28,12 @@ export default function CoreBusinessesSection() {
         </motion.div>
 
         {/* Cards */}
-        <div className="space-y-10 lg:space-y-14">
+        <div className="w-full container mx-auto relative">
+        <div className="space-y-10 lg:space-y-14 w-full">
           {coreBusinesses.map((business) => (
             <CoreBusinessCard key={business.title} {...business} />
           ))}
+        </div>
         </div>
       </div>
     </section>

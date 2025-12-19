@@ -1,119 +1,25 @@
-"use client";
-
 import Image from 'next/image';
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
-
-const AnimatedCanvas: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number | null>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    const size = 55;
-    const gap = 25;
-    const total = size + gap;
-
-    let cols = Math.ceil(canvas.width / total);
-    let rows = Math.ceil(canvas.height / total);
-
-    interface Box {
-      x: number;
-      y: number;
-      opacity: number;
-      speed: number;
-      direction: 1 | -1;
-    }
-
-    let boxes: Box[] = [];
-
-    const createBoxes = () => {
-      boxes = [];
-      cols = Math.ceil(canvas.width / total);
-      rows = Math.ceil(canvas.height / total);
-
-      for (let i = 0; i < cols; i++) {
-        for (let j = 0; j < rows; j++) {
-          boxes.push({
-            x: i * total,
-            y: j * total,
-            opacity: Math.random() * 0.15,
-            speed: 0.002 + Math.random() * 0.004,
-            direction: Math.random() > 0.5 ? 1 : -1,
-          });
-        }
-      }
-    };
-
-    createBoxes();
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (const box of boxes) {
-        box.opacity += box.speed * box.direction;
-
-        if (box.opacity >= 0.18) box.direction = -1;
-        if (box.opacity <= 0) {
-          box.opacity = 0;
-          box.direction = 1;
-          box.speed = 0.002 + Math.random() * 0.004;
-        }
-
-        if (box.opacity > 0) {
-          ctx.fillStyle = `rgba(30, 30, 30, ${box.opacity})`;
-          ctx.fillRect(box.x, box.y, size, size);
-        }
-      }
-
-      animationRef.current = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ borderRadius: "inherit" }}
-    />
-  );
-};
 
 
 const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-zinc-900 text-white rounded-t-xl md:rounded-none overflow-hidden" style={{ fontSize: "16px" }}>
-      {/* Animated Canvas Background */}
-      <div className="absolute inset-0">
-        <AnimatedCanvas />
+    <footer className="relative bg-zinc-900 text-white rounded-t-xl md:rounded-none overflow-hidden" style={{ fontSize: "14px" }}>
+
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="grid-layer layer-1" />
+        <div className="grid-layer layer-2" />
+        <div className="grid-layer layer-3" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_1fr] gap-12 mb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[3fr_1fr_1fr_1fr] gap-12 mb-12 lg:mb-6">
           {/* Brand Section */}
           <div className="space-y-6">
-            <div className="w-40">
+            <div className="w-28">
               <Image
                 width={252}
                 height={153}
@@ -125,30 +31,30 @@ const Footer: React.FC = () => {
             <p className=" text-zinc-200 leading-relaxed">
               A global commodity trading company specializing in petroleum, construction materials, energy, fertilizers, and agro commodities. Trusted since 2007.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-2">
               <a
                 href="#"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
               >
-                <FaFacebookF className="text-white " />
+                <FaFacebookF className="text-white w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
               >
-                <FaInstagram className="text-white " />
+                <FaInstagram className="text-white w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
               >
-                <FaTwitter className="text-white " />
+                <FaTwitter className="text-white w-4 h-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110"
+                className="w-6 h-6 flex items-center justify-center rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-110"
               >
-                <FaLinkedinIn className="text-white " />
+                <FaLinkedinIn className="text-white w-4 h-4" />
               </a>
             </div>
           </div>
@@ -222,8 +128,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-white/10">
-          <div className="flex items-center gap-2  text-zinc-200">
+        <div className="pt-8 lg:pt-0 border-t lg:border-transparent border-white/10">
+          <div className="flex items-center gap-2 text-zinc-200">
             <span> &copy; {new Date().getFullYear()} Globex. All rights reserved.</span>
           </div>
         </div>

@@ -29,7 +29,7 @@ export const PRODUCT_DATA: ProductCategory[] = [
       {
         name: 'GYPSUM',
         imageSrc: '/assets/images/gypsum.png',
-        description: 'Gypsum is a soft sulphate mineral composed of calcium sulphate dehydrate, with the chemicalformula CaSO4·2H2O. The major consumers of gypsum at present are the cement industry. OmanOrigin natural gypsum with specifications of 90–92% is delivered in bulk through vessels, containers,and barges to end users like cement, plasterboard, fertilizer manufacturing factories.'
+        description: 'Gypsum is a soft sulphate mineral composed of calcium sulphate dehydrate, with the chemicalformula CaSO4·2H2O. The major consumers of gypsum at present are the cement industry. OmanOrigin natural gypsum with specifications of 90–92% is delivered in bulk through vessels, max-w-7xls,and barges to end users like cement, plasterboard, fertilizer manufacturing factories.'
       },
       {
         name: 'LIMESTONE',
