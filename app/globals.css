@@ -127,9 +127,11 @@
   }
 }
 
+
 html, :root {
   scroll-behavior: smooth;
   font-weight: 500;
+  font-size: 20px;
   color: black
 }
 
@@ -144,4 +146,78 @@ html, :root {
 
 .inter-display-font {
   font-feature-settings: "salt" "ss01" "ss02" "ss03" "ss04" "ss08" !important;
+}
+
+.scroll-progress {
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+
+  animation-name: custom-scroll-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+
+  animation-timeline: scroll(root block);
+}
+
+@keyframes custom-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1150px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+}
+
+@keyframes pulseA {
+  0%, 100% { opacity: 0.08; transform: translate(0, 0); }
+  50% { opacity: 0.3; transform: translate(4px, -2px); }
+}
+
+@keyframes pulseB {
+  0%, 100% { opacity: 0.08; transform: translate(0, 0); }
+  50% { opacity: 0.20; transform: translate(-3px, 3px); }
+}
+
+@keyframes pulseC {
+  0%, 100% { opacity: 0.06; transform: translate(0, 0); }
+  50% { opacity: 0.28; transform: translate(2px, 2px); }
+}
+
+footer .grid-layer {
+  position: absolute;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  will-change: opacity, transform;
+}
+
+/* Layer tuning */
+
+footer .layer-1 {
+  background-size: 90px 90px;
+  animation: pulseA 8s ease-in-out infinite;
+}
+
+footer .layer-2 {
+  background-size: 70px 70px;
+  background-position: 35px 35px;
+  animation: pulseB 11s ease-in-out infinite;
+}
+
+footer .layer-3 {
+  background-size: 110px 110px;
+  background-position: 20px 60px;
+  animation: pulseC 14s ease-in-out infinite;
 }
