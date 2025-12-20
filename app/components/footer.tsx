@@ -1,18 +1,36 @@
+"use client";
+
 import Image from 'next/image';
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 
 const Footer: React.FC = () => {
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <footer className="relative bg-zinc-900 text-white rounded-t-xl md:rounded-none overflow-hidden" style={{ fontSize: "14px" }}>
 
       {/* Animated Grid Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="grid-layer layer-1" />
-        <div className="grid-layer layer-2" />
-        <div className="grid-layer layer-3" />
+        <div className="grid-background-container">
+          {mounted && [...Array(200)].map((_, i) => (
+            <div
+              key={i}
+              className="grid-background-item"
+              style={{
+                animationDelay: `${(Math.random() * 5).toFixed(2)}s`,
+                animationDuration: `${(3 + Math.random() * 4).toFixed(2)}s`
+              }}
+            />
+          ))}
+        </div>
       </div>
+
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
