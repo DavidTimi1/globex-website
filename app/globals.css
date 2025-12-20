@@ -44,7 +44,7 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  
+
   --default-font-family: "interDisplay", "interDisplay Fallback";
   --default-font-feature-settings: "salt", "ss01", "ss02", "ss03", "ss04", "ss08";
 }
@@ -122,13 +122,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 
-html, :root {
+html,
+:root {
   scroll-behavior: smooth;
   font-weight: 500;
   font-size: 20px;
@@ -164,6 +166,7 @@ html, :root {
   from {
     transform: scaleX(0);
   }
+
   to {
     transform: scaleX(1);
   }
@@ -178,46 +181,37 @@ html, :root {
   }
 }
 
-@keyframes pulseA {
-  0%, 100% { opacity: 0.08; transform: translate(0, 0); }
-  50% { opacity: 0.3; transform: translate(4px, -2px); }
+@keyframes gridFadeInOut {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
-@keyframes pulseB {
-  0%, 100% { opacity: 0.08; transform: translate(0, 0); }
-  50% { opacity: 0.20; transform: translate(-3px, 3px); }
-}
-
-@keyframes pulseC {
-  0%, 100% { opacity: 0.06; transform: translate(0, 0); }
-  50% { opacity: 0.28; transform: translate(2px, 2px); }
-}
-
-footer .grid-layer {
+footer .grid-background-container {
   position: absolute;
-  inset: -20%;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
-  will-change: opacity, transform;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 60px);
+  grid-auto-rows: 60px;
+  gap: 16px;
+  /* gap-4 */
+  padding: 16px;
+  pointer-events: none;
+  justify-content: center;
+  overflow: hidden;
 }
 
-/* Layer tuning */
-
-footer .layer-1 {
-  background-size: 90px 90px;
-  animation: pulseA 8s ease-in-out infinite;
-}
-
-footer .layer-2 {
-  background-size: 70px 70px;
-  background-position: 35px 35px;
-  animation: pulseB 11s ease-in-out infinite;
-}
-
-footer .layer-3 {
-  background-size: 110px 110px;
-  background-position: 20px 60px;
-  animation: pulseC 14s ease-in-out infinite;
+.grid-background-item {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.035);
+  border-radius: 4px;
+  opacity: 0;
+  animation: gridFadeInOut 4s infinite ease-in-out;
 }
