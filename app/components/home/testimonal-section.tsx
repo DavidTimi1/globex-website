@@ -77,7 +77,7 @@ const TestimonialsSection: React.FC = () => {
       id="testimonials"
       className="w-full py-14 md:py-20 px-5 md:px-10 bg-white"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto">
         {/* Heading and subcopy */}
         <div className="mb-16 text-center space-y-6">
           <div className="space-y-3">

@@ -93,7 +93,7 @@ const ContactSection: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="w-full py-14 md:py-20 px-5 md:px-10 bg-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto">
         <div className="mb-16">
           <div
             className={`inline-flex items-center gap-2 mb-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'

@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className="w-full h-1 bg-white overflow-hidden">
         <div className="scroll-progress h-full bg-[#ff4f01]" />
       </div>
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <div className="container flex items-center justify-between px-6 py-4">
         {/* Brand Logo */}
         <Link href="/" className="h-12 w-32 relative z-50">
           <Image
